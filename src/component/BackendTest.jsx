@@ -105,8 +105,8 @@ class BackendTest extends Component {
             //console.log(res.data.results);
             if( res.data )
             {
-                
-                this.setState({loginResult:JSON.stringify(res.data.results)})
+                this.setState({loginResult:JSON.stringify(res.data.results)});
+                this.props.setEntries(res.data.results);
             }
         })
         .catch( (err) =>
@@ -120,6 +120,7 @@ class BackendTest extends Component {
     }
     render() 
     {
+        //console.log(this.props);
         let email, username, password, entry, time,longitude, latitude;
         return (
             <div>

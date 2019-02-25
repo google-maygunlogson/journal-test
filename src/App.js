@@ -2,13 +2,28 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import BackendTest from './component/BackendTest';
+import Swiper from './component/Swiper';
 
 class App extends Component {
+  constructor(props)
+  {
+    super(props);
+    this.state = 
+    {
+      entries:[]
+    };
+    this.setEntries = this.setEntries.bind(this);
+  }
+  setEntries(entries = [])
+  {
+    this.setState({entries:entries});
+  }
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <BackendTest />
+          <BackendTest setEntries={this.setEntries}/>
+          <Swiper entries={this.state.entries} />
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
